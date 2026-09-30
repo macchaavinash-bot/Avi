@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Moments - Function Hall Booking</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="hero">
+    <nav>
+        <div class="logo">Royal Moments</div>
+        <a href="#booking">Book Now</a>
+    </nav>
+    <div class="hero-content">
+        <p class="tag">FUNCTION HALL BOOKING</p>
+        <h1>Celebrate Your Special Day</h1>
+        <p>Book a beautiful hall with optional decoration and food services.</p>
+        <a class="btn" href="#booking">Start Booking</a>
+    </div>
+</header>
+
+<section class="cards">
+    <div class="card"><h3>🏛️ Multiple Halls</h3><p>Choose a hall based on your event and guest count.</p></div>
+    <div class="card"><h3>🌸 Decoration</h3><p>Book with decoration or choose hall-only service.</p></div>
+    <div class="card"><h3>🍽️ Catering</h3><p>Select food service and your preferred menu items.</p></div>
+</section>
+
+<section id="booking" class="booking-section">
+    <div class="section-heading">
+        <p class="tag">ONLINE BOOKING</p>
+        <h2>Reserve Your Function Hall</h2>
+    </div>
+
+    <form action="book" method="post" class="booking-form" onsubmit="return validateForm()">
+        <div class="form-grid">
+            <div>
+                <label>Customer Name *</label>
+                <input type="text" name="customerName" required placeholder="Enter your name">
+            </div>
+
+            <div>
+                <label>Phone *</label>
+                <input type="tel" name="phone" pattern="[0-9]{10}" required placeholder="10-digit mobile number">
+            </div>
+
+            <div>
+                <label>Email</label>
+                <input type="email" name="email" placeholder="you@example.com">
+            </div>
+
+            <div>
+                <label>Event Type *</label>
+                <select name="eventType" required>
+                    <option value="">Select event</option>
+                    <option>Wedding</option>
+                    <option>Engagement</option>
+                    <option>Birthday</option>
+                    <option>Reception</option>
+                    <option>Conference</option>
+                    <option>Baby Shower</option>
+                    <option>Anniversary</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Event Date *</label>
+                <input type="date" id="eventDate" name="eventDate" required>
+            </div>
+
+            <div>
+                <label>Number of Guests *</label>
+                <input type="number" name="guests" min="10" max="5000" required placeholder="Example: 300">
+            </div>
+
+            <div>
+                <label>Hall *</label>
+                <select name="hallName" required>
+                    <option value="">Select hall</option>
+                    <option>Royal Grand Hall - 1000 Guests</option>
+                    <option>Crystal Banquet Hall - 500 Guests</option>
+                    <option>Garden Celebration Hall - 300 Guests</option>
+                    <option>Mini Party Hall - 150 Guests</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Decoration *</label>
+                <select name="decoration" required>
+                    <option>Without Decoration</option>
+                    <option>With Decoration</option>
+                </select>
+            </div>
+
+            <div class="full">
+                <label>Food Service *</label>
+                <div class="radio-row">
+                    <label><input type="radio" name="foodService" value="With Food" checked onclick="toggleFood(true)"> With Food</label>
+                    <label><input type="radio" name="foodService" value="Without Food" onclick="toggleFood(false)"> Without Food</label>
+                </div>
+            </div>
+
+            <div id="foodBox" class="full food-box">
+                <h3>Select Food Items</h3>
+                <p class="hint">Choose any number of items.</p>
+                <div class="food-grid">
+                    <label><input type="checkbox" name="foodItems" value="Welcome Drink"> Welcome Drink</label>
+                    <label><input type="checkbox" name="foodItems" value="Veg Soup"> Veg Soup</label>
+                    <label><input type="checkbox" name="foodItems" value="Chicken Soup"> Chicken Soup</label>
+                    <label><input type="checkbox" name="foodItems" value="Paneer Tikka"> Paneer Tikka</label>
+                    <label><input type="checkbox" name="foodItems" value="Gobi 65"> Gobi 65</label>
+                    <label><input type="checkbox" name="foodItems" value="Chicken 65"> Chicken 65</label>
+                    <label><input type="checkbox" name="foodItems" value="Paneer Butter Masala"> Paneer Butter Masala</label>
+                    <label><input type="checkbox" name="foodItems" value="Veg Curry"> Veg Curry</label>
+                    <label><input type="checkbox" name="foodItems" value="Chicken Curry"> Chicken Curry</label>
+                    <label><input type="checkbox" name="foodItems" value="Mutton Curry"> Mutton Curry</label>
+                    <label><input type="checkbox" name="foodItems" value="Dal Tadka"> Dal Tadka</label>
+                    <label><input type="checkbox" name="foodItems" value="Mixed Veg Curry"> Mixed Veg Curry</label>
+                    <label><input type="checkbox" name="foodItems" value="Veg Biryani"> Veg Biryani</label>
+                    <label><input type="checkbox" name="foodItems" value="Chicken Biryani"> Chicken Biryani</label>
+                    <label><input type="checkbox" name="foodItems" value="Mutton Biryani"> Mutton Biryani</label>
+                    <label><input type="checkbox" name="foodItems" value="Fried Rice"> Fried Rice</label>
+                    <label><input type="checkbox" name="foodItems" value="Naan"> Naan</label>
+                    <label><input type="checkbox" name="foodItems" value="Roti"> Roti</label>
+                    <label><input type="checkbox" name="foodItems" value="Jeera Rice"> Jeera Rice</label>
+                    <label><input type="checkbox" name="foodItems" value="Curd Rice"> Curd Rice</label>
+                    <label><input type="checkbox" name="foodItems" value="Gulab Jamun"> Gulab Jamun</label>
+                    <label><input type="checkbox" name="foodItems" value="Rasmalai"> Rasmalai</label>
+                    <label><input type="checkbox" name="foodItems" value="Ice Cream"> Ice Cream</label>
+                    <label><input type="checkbox" name="foodItems" value="Fruit Salad"> Fruit Salad</label>
+                    <label><input type="checkbox" name="foodItems" value="Tea"> Tea</label>
+                    <label><input type="checkbox" name="foodItems" value="Coffee"> Coffee</label>
+                    <label><input type="checkbox" name="foodItems" value="Soft Drinks"> Soft Drinks</label>
+                    <label><input type="checkbox" name="foodItems" value="Mineral Water"> Mineral Water</label>
+                </div>
+            </div>
+
+            <div class="full">
+                <label>Special Request</label>
+                <textarea name="specialRequest" rows="4" placeholder="Stage setup, parking, sound system, etc."></textarea>
+            </div>
+        </div>
+
+        <button class="btn submit-btn" type="submit">Confirm Booking</button>
+    </form>
+</section>
+
+<footer>
+    <p>Royal Moments Function Hall Booking • Java + JDBC + MySQL</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
